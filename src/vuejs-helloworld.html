@@ -53,10 +53,21 @@
 	</div>
 	
 	<div id='app7' v-bind:class='{classA:isA,classB:isB}'>
-		<div v-bind:class='classObj'></div>
+		<template v-if='ok'>
+			<p>hahaha</p>
+		</template>
+		<template v-else>
+			<p>hahaha2</p>
+		</template>
+		<div v-if='ok' v-bind:class='classObj'>YES</div>
+		<div v-else>NO</div>
 		<div v-bind:class='[f,g]'></div>
 		<div v-bind:class='[{f:isA,g:isB}]'></div>
 		<div v-bind:style='cssObj'>testBindStyle</div>
+		
+		<div v-show='ok'>testVShowYes</div>
+		<div v-show='!ok'>testVShowNo</div>
+		
 	</div>
 
 	<script>
@@ -159,6 +170,7 @@
 			
 			el:'#app7',
 			data:{
+				ok:false,
 				isA:true,
 				isB:false,
 				classObj:{
