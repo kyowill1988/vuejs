@@ -44,6 +44,14 @@
 		hello shanghai
 	</div>
 	
+	<div id="app6">
+		{{a}},{{b}}
+		<input v-model='a'>
+		<div>name:{{fullName}}</div>
+		<input v-model="lastName">
+		<input v-model="firstName">
+	</div>
+
 	<script>
 		
 		var app1 = new Vue({
@@ -118,6 +126,26 @@
 				console.log('a is:'+this.a)
 			}
 		
+		})
+		
+		var app6 = new Vue({
+			el:'#app6',
+			data:{
+				a:1,
+				firstName:'Foo',
+				lastName:'Bar'
+			},
+			computed:{
+				b:function(){
+					var c = parseInt(this.a)
+					return c + 1
+			},
+			
+				fullName:function(){
+					return this.firstName + ' ' + this.lastName
+				}
+			
+			}
 		})
 		
 	</script>	
