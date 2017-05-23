@@ -13,7 +13,7 @@
 		</app-view>
 	</div>
 	
-	<div id="app1">{{message}}
+	<div id="app1">{{message|capitalize}}
 		<input v-model='message'>
 	</div>
 	
@@ -27,7 +27,7 @@
 	
 	<div id="app3">
 		<p>{{message2}}</p>
-		<button v-on:click="reverserMessage">reverserMessage</button>
+		<button @click="reverserMessage">reverserMessage</button>
 	</div>
 	
 	<div id="app4">
