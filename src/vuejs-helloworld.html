@@ -4,14 +4,90 @@
 
 <body>
 	<script src="https://unpkg.com/vue@2.3.3/dist/vue.js"></script>
-	<div id="app">{{message}}</div>
+	<div id="app">{{message}}
+		<input v-model='message'>
+	</div>
+	
+	<div id="app2">
+		<ul>
+			<li v-for='todo in todos'>
+				{{todo.text1}}:{{todo.value}}
+			</li>
+		</ul>
+	</div>
+	
+	<div id="app3">
+		<p>{{message2}}</p>
+		<button v-on:click="reverserMessage">reverserMessage</button>
+	</div>
+	
+	<div id="app4">
+		<input v-model="newTodo" v-on:keyup.enter="addTodo"></input>
+		<ul>
+			<li v-for="todo in todos">
+				<span>{{todo.text}}</span>
+				<button v-on:click="removeTodo($index)">X</button>
+			</li>
+		</ul>
+	</div>
+	
 	<script>
 		var app = new Vue({
-			el:"#app",
+			el:'#app',
 			data:{
 				message:'Hello world!'
 			}
 		})
+		
+		var app2 = new Vue({
+			el:'#app2',
+			data:{
+				todos:[
+					{text1:'One',value:1},
+					{text1:'Two',value:2},
+					{text1:'Three',value:3},
+					{text1:'Four',value:4}
+				]
+			}
+		})
+		
+		var app3 = new Vue({
+			el:'#app3',
+			data:{
+				message2:'hello'
+			},
+			methods:{
+				reverserMessage : function(){
+					this.message2 = this.message2.split('').reverse().join('')
+				}
+		}
+		
+		})
+		
+		var app4 = new Vue({
+			el:'#app4',
+			data:{
+				newTodo:'',
+				todos:[
+					{text:'add some items'}
+				]
+			},
+			methods:{
+				addTodo:function(){
+					var text = this.newTodo.trim()
+					if(text){
+						this.todos.push({text:text})
+						this.newTodo=''
+					}
+				},
+				
+				removeTodo:function(index){
+					this.todos.splice(index,1)
+				}
+			}
+		
+		})
+		
 	</script>	
 </body>
 </html>
