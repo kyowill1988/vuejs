@@ -4,7 +4,16 @@
 
 <body>
 	<script src="https://unpkg.com/vue@2.3.3/dist/vue.js"></script>
-	<div id="app">{{message}}
+	
+	<div id="app">
+		<app-nav></app-nav>
+		<app-view>
+			<app-sidebar></app-sidebar>
+			<app-content></app-content>
+		</app-view>
+	</div>
+	
+	<div id="app1">{{message}}
 		<input v-model='message'>
 	</div>
 	
@@ -31,9 +40,14 @@
 		</ul>
 	</div>
 	
+	<div id="app5" v-if="greeting">
+		hello shanghai
+	</div>
+	
 	<script>
-		var app = new Vue({
-			el:'#app',
+		
+		var app1 = new Vue({
+			el:'#app1',
 			data:{
 				message:'Hello world!'
 			}
@@ -86,6 +100,13 @@
 				}
 			}
 		
+		})
+		
+		var app5 = new Vue({
+			el:'#app5',
+			data:{
+				greeting:false
+			}
 		})
 		
 	</script>	
