@@ -13,7 +13,7 @@
 		</app-view>
 	</div>
 	
-	<div id="app1">{{message|capitalize}}
+	<div id="app1">{{message}}
 		<input v-model='message'>
 	</div>
 	
@@ -50,6 +50,13 @@
 		<div>name:{{fullName}}</div>
 		<input v-model="lastName">
 		<input v-model="firstName">
+	</div>
+	
+	<div id='app7' v-bind:class='{classA:isA,classB:isB}'>
+		<div v-bind:class='classObj'></div>
+		<div v-bind:class='[f,g]'></div>
+		<div v-bind:class='[{f:isA,g:isB}]'></div>
+		<div v-bind:style='cssObj'>testBindStyle</div>
 	</div>
 
 	<script>
@@ -145,6 +152,26 @@
 					return this.firstName + ' ' + this.lastName
 				}
 			
+			}
+		})
+		
+		var app7 = new Vue({
+			
+			el:'#app7',
+			data:{
+				isA:true,
+				isB:false,
+				classObj:{
+					'c':true,
+					'd':false,
+					'e':true
+				},
+				f:'class-f',
+				g:'class-g',
+				cssObj:{
+					color:'red',
+					size:'18px'
+				}
 			}
 		})
 		
