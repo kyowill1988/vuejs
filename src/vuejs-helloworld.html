@@ -72,7 +72,17 @@
 		<div v-show='!ok'>testVShowNo</div>
 		
 	</div>
-
+	
+	<div id='app8'>
+		<button v-on:click='greet'>test</button>
+	</div>
+	
+	<div id='app9'>
+		<button v-on:click="say('hi')">say hi</button>
+		<button v-on:click="say('what')">say what</button>
+		<input v-on:keyup.space="tellme">
+	</div>
+	
 	<script>
 		
 		var app1 = new Vue({
@@ -186,6 +196,31 @@
 				cssObj:{
 					color:'red',
 					size:'18px'
+				}
+			}
+		})
+		
+		var app8 = new Vue({
+			el:'#app8',
+			data:{
+				name :'vue.js'
+			},
+			methods:{
+				greet:function(event){
+					alert('Hello' + this.name + '!')
+					alert(event.target.tagName)
+				}
+			}
+		})
+		
+		var app9 = new Vue({
+			el:'#app9',
+			methods:{
+				say:function(msg){
+					alert(msg)
+				},
+				tellme:function(){
+					alert('Yes we can')
 				}
 			}
 		})
