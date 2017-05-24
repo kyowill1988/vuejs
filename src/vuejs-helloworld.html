@@ -19,9 +19,12 @@
 	
 	<div id="app2">
 		<ul>
-			<li v-for='todo in todos'>
-				{{todo.text1}}:{{todo.value}}
-			</li>
+			<template v-for='todo of todos'>
+				<li>{{todo.text1}}:{{todo.value}}-{{index}}</li>
+			</template>
+			<template v-for='(key,n) in 5'>
+				<li>{{key}},{{n}}</li>
+			</template>
 		</ul>
 	</div>
 	
