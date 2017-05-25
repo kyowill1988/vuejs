@@ -1,10 +1,28 @@
 <html>
 <head>
+
 </head>
 
-<body>
+<body>	
+	<style>
+		.expand-transition {
+			transition:all .3s ease;
+			height:30px;
+			padding:10px;
+			background-color:#eee;
+			overflow:hidden;
+		}
+		
+		.expand-leave .expand-enter{
+			height:0;
+			padding:0 10px;
+			opacity:0
+		}
+		
+	</style>
 	<script src="https://unpkg.com/vue@2.3.3/dist/vue.js"></script>
-	
+		
+		
 	<div id="app">
 		<app-nav></app-nav>
 		<app-view>
@@ -123,6 +141,14 @@
 		<button v-on:click="say('what')">say what</button>
 		<input v-on:keyup.space="tellme">
 	</div>
+	
+	<div id='app10' v-if='show' transition='expand'>55555
+	</div>
+	
+	
+	
+	
+	
 	
 	<script>
 	
