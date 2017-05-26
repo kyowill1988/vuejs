@@ -4,22 +4,7 @@
 </head>
 
 <body>	
-	<style>
-		.expand-transition {
-			transition:all .3s ease;
-			height:30px;
-			padding:10px;
-			background-color:#eee;
-			overflow:hidden;
-		}
-		
-		.expand-leave .expand-enter{
-			height:0;
-			padding:0 10px;
-			opacity:0
-		}
-		
-	</style>
+	
 	<script src="https://unpkg.com/vue@2.3.3/dist/vue.js"></script>
 		
 		
@@ -142,12 +127,53 @@
 		<input v-on:keyup.space="tellme">
 	</div>
 	
-	<div id='app10' v-if='show' transition='expand'>55555
+	<div id='app10'>
+		<div v-if='show' :transition='expand'></div>
+		<button>toggle</button>
 	</div>
 	
+	<style>
+		.expand-transition {
+			height:30px;
+			transition:all .3s ease;
+			padding:10px;
+			background-color:#eee;
+			overflow:hidden;
+		}
+		
+		 .expand-enter,.expand-leave{
+			height:0;
+			padding:0 10px;
+			opacity:0;
+		}
+		
+	</style>
 	
+	<div id="demo">
+    <input v-model="query">
+    <ul>
+        <li v-for="item in list" transition="staggered" stagger="100">
+          {{item.msg}}
+         </li>
+    </ul>
+	</div>
 	
-	
+	<style>
+	ul {
+    padding-left: 0;
+    font-family: Helvetica, Arial, sans-serif;
+}
+.staggered-transition {
+    transition: all .5s ease;
+    overflow: hidden;
+    margin: 0;
+    height: 20px;
+}
+.staggered-enter, .staggered-leave {
+    opacity: 0;
+    height: 0;
+}
+	</style>
 	
 	
 	<script>
@@ -297,7 +323,7 @@
 			}
 		})
 		
-		var app9 = new Vue({
+		new Vue({
 			el:'#app9',
 			methods:{
 				say:function(msg){
@@ -308,6 +334,56 @@
 				}
 			}
 		})
+		
+		new Vue({
+			el:'#app10',
+			data:{
+				show:true,
+				expand:'fade'
+			},
+			transitions:{
+				expand:{
+			beforeEnter:function(el){
+				el.textContent = 'beforeEnter'
+			},
+			enter:function(el){
+				el.textContent = 'enter'
+			},
+			afterEnter:function(el){
+				el.textContent = 'afterEnter'
+			},
+			cancelledEnter:function(el){
+				el.textContent = 'cancelEnter'
+			},
+			beforeLeave:function(el){
+				el.textContent = 'beforeLeave'
+			},
+			leave:function(el){
+				el.textContent = 'leave'
+			},
+			afterLeave:function(el){
+				el.textContent = 'afterLeave'
+			},
+			cancelledLeave:function(el){
+				el.textContent = 'cancelLeave'
+			}
+			}
+			}
+		})
+		
+		new Vue({
+    el: '#demo',
+    data: {
+        query: '',
+        list: [
+            { msg: 'Bruce Lee' },
+            { msg: 'Jackie Chan' },
+            { msg: 'Chuck Norris' },
+            { msg: 'Jet Li' },
+            { msg: 'Kung Fury' }
+        ]
+    }
+})
 		
 	</script>	
 </body>
