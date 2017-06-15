@@ -1,23 +1,28 @@
 <!DOCTYPE>
 <html>
 <head>
-</head>
-
 <style>
 	.rh-card--layout{
 		padding:30px;
-		[data-rh-theme=dark]{
+		&[data-rh-theme=red]{
 			color:red;
 		}
-		[data-rh-theme="light"]{
+		[data-rh-theme=light]{
 			color:white;
 		}
 	}
 	
+	a[data-rh-theme=red]{
+			color:red;
+	}
+	
 </style>
+
+</head>
+
 <body>
 
-<div class="rh-card--layout" data-rh-theme="dark">test</div>
+<div class="rh-card--layout" data-rh-theme="red">test</div>
 
 </body>
 </html>
