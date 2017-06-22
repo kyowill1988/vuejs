@@ -8,7 +8,9 @@
 	<script src="https://unpkg.com/vue@2.3.3/dist/vue.js"></script>
 		
 	<script>alert("xss")</script>	
-		
+	
+	<div class="mystyle">hello</div>
+	
 	<div id="app">
 		<app-nav></app-nav>
 		<app-view>
@@ -174,6 +176,10 @@
     opacity: 0;
     height: 0;
 }
+
+	.mystyle{ margin-top:1px,margin-left:2px,margin-right:2px,margin-bottom:1px;background-color:red}
+
+
 	</style>
 	
 	
