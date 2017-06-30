@@ -6,8 +6,19 @@
 <body>	
 	
 	<script src="https://unpkg.com/vue@2.3.3/dist/vue.js"></script>
+	
+	<button onclick="openwindow()">打开新按钮</button>
+	
 		
-	<script>alert("xss")</script>	
+	<script>
+		
+		function openwindow(){
+			
+			window.open("http://www.baidu.com",'newwindow','height=700,width=1300,top=0,left=0,toolbar=no,menubar=no,scrollbars=no,resizable=no,location=no,titlebar=0, status=no');
+		
+		}
+		
+	</script>	
 	
 	<div class="mystyle">hello</div>
 	
