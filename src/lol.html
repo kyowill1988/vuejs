@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">  
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-CN">  
+<head>  
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">  
+<meta http-equiv="Content-Language" content="zh-CN" />  
+<meta content="all" name="robots" />  
+<title>øÁ”Ú</title>  
+<script type="text/javascript" src="http://localhost:8075/WebReport/ReportServer?op=emb&resource=finereport.js"></script>  
+<link rel="stylesheet" type="text/css" href="http://localhost:8075/WebReport/ReportServer?op=emb&resource=finereport.css"/>  
+ <script type='text/javascript'> 
+ function doPrint(){   
+    var url="http://localhost:8075/WebReport/ReportServer?reportlet="; 
+    url+=document.report.cpt.value;   
+	
+	var isPopUp = false;
+	var config = {url : url,isPopUp : isPopUp}
+    //FR.doURLPDFPrint(config);   
+	//window.open(url);
+    FR.doURLPDFPrint(url,true);
+	//FR.doURLFlashPrint(url,true);
+}   
+ </script>
+<body>  
+    <input id="main" type="text" value="I'm main"/>  
+    <iframe src="http://localhost:8075/WebReport/ReportServer?formlet=gettingstarted.cpt" height="300" width="500">
+		
+	</iframe>  
+	
+</body>  
+</head>  
+</html>  

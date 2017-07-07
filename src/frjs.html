@@ -1,0 +1,19 @@
+<html> 
+ <head> 
+ <title>FineReport Demo</title> 
+ <meta http-equiv="Content-Type" content="text/html; charset=GBK" />  
+<script type="text/javascript" src="http://localhost:8075/WebReport/ReportServer?op=emb&resource=finereport.js"></script>  
+<link rel="stylesheet" type="text/css" href="http://localhost:8075/WebReport/ReportServer?op=emb&resource=finereport.css"/>  
+ <script type='text/javascript'> 
+ function doPrint(){
+	window.open("http://localhost:8075/WebReport/print.html?id=xx");
+ }   
+ </script> 
+ </head> 
+ <body> 
+ <form name="report"> 
+ <input id="cpt" type="checkbox" value="gettingstarted.cpt" />gettingstarted.cpt<br> 
+ </form> 
+ <a href="javascript:doPrint()">打印</a>
+ </body> 
+ </html>
